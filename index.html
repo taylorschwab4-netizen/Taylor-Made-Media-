@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-powered social media management for local businesses. Save time with custom content designed for your brand.">
+    <meta name="keywords" content="social media management, AI content, local business marketing">
+    <meta name="author" content="Taylor Made Social AI">
+    <meta property="og:title" content="Taylor Made Social AI - Local Business Growth">
+    <meta property="og:description" content="AI-powered social media management for local businesses">
+    <meta property="og:type" content="website">
+    
+    <title>Taylor Made Social AI | Social Media Management for Local Businesses</title>
+    
+    <!-- Google Fonts import for Poppins and Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --emerald: #2E7D32;
+            --emerald-dark: #1b4d1b;
+            --charcoal: #2C2C2C;
+            --off-white: #F7F7F7;
+            --gold: #D4AF37;
+            --sage: #9CAF88;
+            --light-sage: #e8ede5;
+            --light-gray: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--off-white);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--emerald);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--emerald);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--charcoal);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            max-width: 900px;
+            margin: 80px auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 2.8rem;
+            color: var(--charcoal);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .subheading {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 1.25rem;
+            color: #555;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--emerald);
+            color: white;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--emerald-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--emerald);
+            border: 2px solid var(--emerald);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--light-sage);
+            transform: translateY(-2px);
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-section {
+            background: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 1px solid #eaeaea;
+        }
+
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--charcoal);
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .about-content p {
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services-section {
+            padding: 100px 20px;
+            background-color: var(--off-white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--emerald);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--charcoal);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .features-section {
+            padding: 100px 20px;
+            background: white;
+            border-top: 1px solid #eaeaea;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+
+        .features-list i {
+            color: var(--emerald);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+
+        /* ===== TESTIMONIALS SECTION ===== */
+        .testimonials-section {
+            padding: 100px 20px;
+            background-color: var(--off-white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .stars {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--charcoal);
+            font-style: normal;
+        }
+
+        .testimonial-role {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* ===== PRICING SECTION ===== */
+        .pricing-section {
+            padding: 100px 20px;
+            background: white;
+            border-top: 1px solid #eaeaea;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 2px solid #eaeaea;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--emerald);
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.15);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--emerald);
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.15);
+            transform: scale(1.05);
+        }
+
+        .pricing-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--charcoal);
+        }
+
+        .price {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--emerald);
+            margin: 20px 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #666;
+        }
+
+        .pricing-features li:before {
+            content: "✓ ";
+            color: var(--emerald);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        /* ===== CONTACT FORM ===== */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 50px 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #eaeaea;
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--emerald);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--charcoal);
+            color: #ccc;
+            padding: 60px 20px 30px;
+            border-top: 4px solid var(--emerald);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--emerald);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #999;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subheading {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .features-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .cta-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta-section p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px 15px;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+                margin-bottom: 15px;
+            }
+
+            .subheading {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+
+            .hero {
+                margin: 40px auto;
+            }
+
+            .about-section {
+                padding: 50px 20px;
+            }
+
+            .services-section,
+            .features-section,
+            .testimonials-section,
+            .pricing-section,
+            .cta-section {
+                padding: 60px 15px;
+            }
+
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+        }
+
+        /* ===== ACCESSIBILITY ===== */
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--emerald);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-to-content:focus {
+            top: 0;
+        }
+
+        a:focus, button:focus {
+            outline: 2px solid var(--emerald);
+            outline-offset: 2px;
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-4 {
+            margin-top: 2rem;
+        }
+
+        .success-message {
+            background-color: #4caf50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .error-message {
+            background-color: #f44336;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- HEADER -->
+    <header role="banner">
+        <a href="#" class="logo">✨ Taylor Made Social AI</a>
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav id="navMenu" aria-label="Main navigation">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <!-- HERO SECTION -->
+        <section class="hero" role="region" aria-label="Hero section">
+            <h1>Helping Local Businesses Grow with AI-Powered Social Media</h1>
+            <p class="subheading">Save time while consistently showing up online with custom content designed specifically for your business.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Book Your Free Strategy Call</a>
+                <a href="#services" class="btn-secondary">Learn More</a>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="about-section" role="region" aria-label="About Taylor">
+            <div class="about-content">
+                <h2>Hi! I'm Taylor.</h2>
+                <p>I help local businesses grow through strategic AI-assisted social media management.</p>
+                <p><strong>My goal is simple:</strong> Create beautiful content that attracts customers while giving business owners more time to focus on running their business.</p>
+                <p>With years of experience in digital marketing and a passion for helping entrepreneurs succeed, I've developed a unique approach that combines AI technology with genuine human creativity. Your business deserves a social media strategy that works—and that's exactly what I deliver.</p>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services" class="services-section" role="region" aria-label="Services offered">
+            <div class="section-title">
+                <h2>What I Offer</h2>
+                <p>Comprehensive social media solutions designed to grow your business</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-pen-fancy"></i></div>
+                    <h3>Content Creation</h3>
+                    <p>AI-powered content tailored to your brand voice, industry, and audience. From engaging captions to eye-catching visuals, we create posts that convert.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <h3>Content Scheduling</h3>
+                    <p>We plan and schedule your content calendar strategically. Post consistently across Instagram, Facebook, LinkedIn, and more without the daily effort.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Analytics & Optimization</h3>
+                    <p>Track what's working with detailed performance reports. We continuously refine your strategy based on real data to maximize your ROI.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Community Management</h3>
+                    <p>Build genuine relationships with your audience. We respond to comments, engage with followers, and grow your community organically.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+                    <h3>Social Media Strategy</h3>
+                    <p>Custom strategies built for your unique business goals. We identify your ideal audience and create a roadmap for sustainable growth.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Brand Development</h3>
+                    <p>Help establish a consistent, professional brand presence. From messaging to visual identity, we ensure you stand out from competitors.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES SECTION -->
+        <section class="features-section" role="region" aria-label="Key benefits">
+            <div class="features-container">
+                <div>
+                    <h2>Why Choose AI-Assisted Management?</h2>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> Save 10+ hours per week on content creation</li>
+                        <li><i class="fas fa-check-circle"></i> Consistent, professional content quality</li>
+                        <li><i class="fas fa-check-circle"></i> Data-driven optimization</li>
+                        <li><i class="fas fa-check-circle"></i> Better audience engagement rates</li>
+                        <li><i class="fas fa-check-circle"></i> Cost-effective compared to agencies</li>
+                        <li><i class="fas fa-check-circle"></i> Personalized strategy for your niche</li>
+                        <li><i class="fas fa-check-circle"></i> Focus on what you do best—run your business</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>How It Works</h2>
+                    <ul class="features-list">
+                        <li><i class="fas fa-circle"></i> <strong>Strategy Call:</strong> We learn about your business, goals, and audience</li>
+                        <li><i class="fas fa-circle"></i> <strong>Brand Analysis:</strong> We develop your unique voice and messaging</li>
+                        <li><i class="fas fa-circle"></i> <strong>Content Planning:</strong> Custom calendar aligned with your business objectives</li>
+                        <li><i class="fas fa-circle"></i> <strong>AI Creation:</strong> We produce high-quality, on-brand content</li>
+                        <li><i class="fas fa-circle"></i> <strong>Posting & Engagement:</strong> Content goes live; we manage community interaction</li>
+                        <li><i class="fas fa-circle"></i> <strong>Monthly Reviews:</strong> Data analysis and strategy adjustments based on results</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION -->
+        <section id="testimonials" class="testimonials-section" role="region" aria-label="Client testimonials">
+            <div class="section-title">
+                <h2>What My Clients Say</h2>
+                <p>Real feedback from real business owners who've seen results</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Taylor completely transformed our social media presence. We went from sporadic posting to having a professional, consistent brand. The time I've saved is incredible!"</p>
+                    <p class="testimonial-author">Sarah Johnson</p>
+                    <p class="testimonial-role">Owner, Local Boutique</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"The AI-powered content is surprisingly good—it feels authentic to our brand. Our engagement has increased by 150% in just three months. Highly recommend!"</p>
+                    <p class="testimonial-author">Mike Chen</p>
+                    <p class="testimonial-role">Manager, Fitness Studio</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Finally, someone who understands small business. Taylor's strategy is data-driven but still keeps a personal touch. Our ROI has been fantastic."</p>
+                    <p class="testimonial-author">Lisa Martinez</p>
+                    <p class="testimonial-role">Director, Dental Practice</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING SECTION -->
+        <section id="pricing" class="pricing-section" role="region" aria-label="Pricing plans">
+            <div class="section-title">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Choose the plan that works best for your business</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$299<span>/month</span></div>
+                    <p style="color: #999; margin-bottom: 20px;">Perfect for new businesses</p>
+                    <ul class="pricing-features">
+                        <li>8-12 posts per month</li>
+                        <li>1 platform management</li>
+                        <li>Basic strategy consultation</li>
+                        <li>Monthly performance report</li>
+                        <li>Email support</li>
+                    </ul>
+                    <button class="btn-primary mt-4" onclick="scrollToContact()" style="width: 100%;">Get Started</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div style="background-color: var(--emerald); color: white; padding: 8px; border-radius: 20px; margin: -40px -30px 20px; text-align: center; font-weight: 600; margin-bottom: 20px;">MOST POPULAR</div>
+                    <h3>Professional</h3>
+                    <div class="price">$599<span>/month</span></div>
+                    <p style="color: #999; margin-bottom: 20px;">Best for growing businesses</p>
+                    <ul class="pricing-features">
+                        <li>20-25 posts per month</li>
+                        <li>3 platform management</li>
+                        <li>Custom strategy & calendar</li>
+                        <li>Community engagement</li>
+                        <li>Bi-weekly check-ins</li>
+                        <li>Monthly analytics report</li>
+                    </ul>
+                    <button class="btn-primary mt-4" onclick="scrollToContact()" style="width: 100%;">Get Started</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Premium</h3>
+                    <div class="price">$999<span>/month</span></div>
+                    <p style="color: #999; margin-bottom: 20px;">For established businesses</p>
+                    <ul class="pricing-features">
+                        <li>40+ posts per month</li>
+                        <li>All platforms included</li>
+                        <li>Advanced strategy consultation</li>
+                        <li>Full community management</li>
+                        <li>Weekly check-ins</li>
+                        <li>Comprehensive analytics</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <button class="btn-primary mt-4" onclick="scrollToContact()" style="width: 100%;">Get Started</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="cta-section" role="region" aria-label="Call to action">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Social Media?</h2>
+                <p>Book a free 30-minute strategy call to discuss your goals and see how we can help your business grow.</p>
+                <button class="btn-primary mt-4" onclick="scrollToContact()">Book Your Free Strategy Call</button>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="about-section" role="region" aria-label="Contact form">
+            <h2 style="margin-bottom: 40px;">Let's Get Started</h2>
+            <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+                <div id="successMessage" class="success-message">
+                    <strong>Success!</strong> Thank you for reaching out. I'll be in touch within 24 hours.
+                </div>
+                <div id="errorMessage" class="error-message">
+                    <strong>Error!</strong> Please make sure all fields are filled out correctly.
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required aria-required="true">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required aria-required="true">
+                </div>
+
+                <div class="form-group">
+                    <label for="business">Business Name *</label>
+                    <input type="text" id="business" name="business" required aria-required="true">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Tell me about your business and goals *</label>
+                    <textarea id="message" name="message" required aria-required="true"></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%;">Send My Information</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Taylor Made Social AI</h4>
+                <p>AI-powered social media management for local businesses that want to grow without the headache.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">Content Creation</a></li>
+                    <li><a href="#services">Strategy Planning</a></li>
+                    <li><a href="#services">Analytics</a></li>
+                    <li><a href="#services">Community Management</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: <a href="mailto:hello@taylormadeSocialAI.com" style="color: var(--gold); text-decoration: none;">hello@taylormadeSocialAI.com</a></p>
+                <p>Phone: <a href="tel:+1234567890" style="color: var(--gold); text-decoration: none;">+1 (234) 567-8900</a></p>
+                <p style="margin-top: 15px; font-size: 0.9rem;">
+                    <a href="#" style="color: #ccc; text-decoration: none;">Privacy Policy</a> | 
+                    <a href="#" style="color: #ccc; text-decoration: none;">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Taylor Made Social AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const isActive = navMenu.classList.contains('active');
+            mobileMenuBtn.setAttribute('aria-expanded', isActive);
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', false);
+            });
+        });
+
+        // Form submission handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const form = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Get form data
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                business: formData.get('business'),
+                message: formData.get('message')
+            };
+
+            // Validate form
+            if (!data.name || !data.email || !data.business || !data.message) {
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                return;
+            }
+
+            // In a real implementation, you would send this data to a server
+            // For now, we'll just show a success message
+            console.log('Form submitted with data:', data);
+
+            // Show success message
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+
+            // Reset form
+            form.reset();
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+        }
+
+        // Scroll to contact form
+        function scrollToContact() {
+            const contactSection = document.getElementById('contact');
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
