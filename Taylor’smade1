@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taylor Made Social AI</title>
+    <!-- Google Fonts import for Poppins and Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --emerald: #2E7D32;
+            --charcoal: #2C2C2C;
+            --off-white: #F7F7F7;
+            --gold: #D4AF37;
+            --sage: #9CAF88;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--off-white);
+            color: var(--charcoal);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--emerald);
+        }
+
+        .hero {
+            max-width: 900px;
+            margin: 80px auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 2.8rem;
+            color: var(--charcoal);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .subheading {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 1.25rem;
+            color: #555;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            background-color: var(--emerald);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--charcoal);
+            transform: translateY(-2px);
+        }
+
+        .about-section {
+            background: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid #eaeaea;
+        }
+
+        .about-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--charcoal);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">✨ Taylor Made Social AI</div>
+    </header>
+
+    <section class="hero">
+        <h1>Helping Local Businesses Grow with AI-Powered Social Media</h1>
+        <p class="subheading">Save time while consistently showing up online with custom content designed specifically for your business.</p>
+        <a href="#" class="btn-primary">Book Your Free Strategy Call</a>
+    </section>
+
+    <section class="about-section">
+        <div class="about-content">
+            <h2>Hi! I’m Taylor.</h2>
+            <p>I help local businesses grow through strategic AI-assisted social media management.</p>
+            <p><strong>My goal is simple:</strong> Create beautiful content that attracts customers while giving business owners more time to focus on running their business.</p>
+        </div>
+    </section>
+
+</body>
+</html>
