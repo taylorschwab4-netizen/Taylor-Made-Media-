@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Random Joke Generator - Get a laugh with jokes from JokeAPI">
+    <meta name="keywords" content="joke generator, random jokes, humor">
+    <meta name="author" content="Taylor Made">
+    <title>Random Joke Generator | Laugh Out Loud</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --accent: #ec4899;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --border: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: var(--dark);
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 700px;
+            width: 100%;
+            padding: 60px 40px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #6b7280;
+            font-weight: 400;
+        }
+
+        .content-area {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .joke-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark);
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .joke-text.show {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .joke-setup {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .joke-delivery {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-style: italic;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid var(--border);
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid var(--light);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            text-align: center;
+        }
+
+        .empty-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #d1d5db;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background: var(--light);
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .category-select {
+            padding: 12px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+            grid-column: 1 / -1;
+        }
+
+        .category-select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn-copy {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-copy:hover:not(:disabled) {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
+        .btn-share {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-share:hover:not(:disabled) {
+            background: #be185d;
+            transform: translateY(-2px);
+        }
+
+        .joke-counter {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #9ca3af;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-box {
+            background: var(--light);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .error-message {
+            background: #fee2e2;
+            color: var(--danger);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+            border-left: 4px solid var(--danger);
+        }
+
+        .error-message.show {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-message {
+            background: #dcfce7;
+            color: var(--success);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: none;
+            font-size: 0.9rem;
+            border-left: 4px solid var(--success);
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+        }
+
+        body.dark-mode .container {
+            background: #1f2937;
+            color: white;
+        }
+
+        body.dark-mode h1,
+        body.dark-mode h2 {
+            color: white;
+        }
+
+        body.dark-mode .subtitle {
+            color: #d1d5db;
+        }
+
+        body.dark-mode .content-area {
+            background: #111827;
+        }
+
+        body.dark-mode .joke-text {
+            color: white;
+        }
+
+        body.dark-mode .stat-box {
+            background: #111827;
+        }
+
+        body.dark-mode .category-select {
+            background: #111827;
+            color: white;
+            border-color: #374151;
+        }
+
+        body.dark-mode .btn-secondary {
+            color: white;
+            border-color: white;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .controls,
+            .actions {
+                grid-template-columns: 1fr;
+            }
+
+            .joke-text {
+                font-size: 1.1rem;
+            }
+
+            .dark-mode-toggle {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+        🌙
+    </button>
+
+    <div class="container">
+        <header>
+            <div class="logo">😂</div>
+            <h1>Joke Generator</h1>
+            <p class="subtitle">Get random jokes to brighten your day!</p>
+        </header>
+
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+
+        <div class="controls">
+            <select class="category-select" id="categorySelect" aria-label="Select joke category">
+                <option value="any">Any Category</option>
+                <option value="general">General</option>
+                <option value="knock-knock">Knock-Knock</option>
+                <option value="programming">Programming</option>
+                <option value="dark">Dark</option>
+                <option value="spooky">Spooky</option>
+                <option value="christmas">Christmas</option>
+            </select>
+        </div>
+
+        <div class="content-area">
+            <div class="empty-state" id="emptyState">
+                <div class="empty-icon">🎭</div>
+                <p>Click "Get Joke" to laugh out loud!</p>
+            </div>
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p class="loading-text">Loading joke...</p>
+            </div>
+            <div class="joke-text" id="jokeText"></div>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-primary" id="getJokeBtn" onclick="getJoke()">
+                <i class="fas fa-laugh"></i> Get Joke
+            </button>
+            <button class="btn btn-secondary" id="randomBtn" onclick="getRandomCategory()">
+                <i class="fas fa-dice"></i> Random
+            </button>
+        </div>
+
+        <div class="actions">
+            <button class="btn btn-copy" id="copyBtn" onclick="copyJoke()" disabled>
+                <i class="fas fa-copy"></i> Copy
+            </button>
+            <button class="btn btn-share" id="shareBtn" onclick="shareJoke()" disabled>
+                <i class="fas fa-share-alt"></i> Share
+            </button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-label">Jokes Loaded</div>
+                <div class="stat-value" id="jokesCount">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Category</div>
+                <div class="stat-value" id="currentCategory">-</div>
+            </div>
+        </div>
+
+        <div class="joke-counter">
+            <p><i class="fas fa-info-circle"></i> Powered by <a href="https://jokeapi.dev/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;">JokeAPI</a></p>
+        </div>
+    </div>
+
+    <script>
+        let jokeCount = 0;
+        let currentJoke = null;
+        let isFetching = false;
+
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+        if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+            darkModeToggle.textContent = '☀️';
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isNowDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isNowDarkMode);
+            darkModeToggle.textContent = isNowDarkMode ? '☀️' : '🌙';
+        });
+
+        async function getJoke() {
+            if (isFetching) return;
+
+            const category = document.getElementById('categorySelect').value;
+            const url = category === 'any' 
+                ? 'https://v2.jokeapi.dev/joke/Any'
+                : `https://v2.jokeapi.dev/joke/${capitalizeCategory(category)}`;
+
+            isFetching = true;
+            showLoading(true);
+            clearMessages();
+            disableButtons(true);
+
+            try {
+                const response = await fetch(url);
+                
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch joke (${response.status})`);
+                }
+
+                const data = await response.json();
+
+                if (data.error) {
+                    throw new Error('Could not retrieve a joke. Please try again.');
+                }
+
+                currentJoke = data;
+                displayJoke(data);
+                updateStats(data);
+                jokeCount++;
+                updateJokeCount();
+                disableButtons(false);
+
+            } catch (error) {
+                showError(error.message);
+                disableButtons(false);
+                showLoading(false);
+            } finally {
+                isFetching = false;
+            }
+        }
+
+        function displayJoke(joke) {
+            const jokeTextElement = document.getElementById('jokeText');
+            const emptyState = document.getElementById('emptyState');
+            const loading = document.getElementById('loading');
+
+            emptyState.style.display = 'none';
+            loading.classList.remove('show');
+
+            if (joke.type === 'single') {
+                jokeTextElement.innerHTML = joke.joke;
+            } else {
+                jokeTextElement.innerHTML = `
+                    <div class="joke-setup">${joke.setup}</div>
+                    <div class="joke-delivery">${joke.delivery}</div>
+                `;
+            }
+
+            jokeTextElement.classList.add('show');
+        }
+
+        function updateStats(joke) {
+            const categoryMap = {
+                'general': 'General',
+                'knock-knock': 'Knock-Knock',
+                'programming': 'Programming',
+                'dark': 'Dark',
+                'spooky': 'Spooky',
+                'christmas': 'Christmas',
+                'any': 'Any'
+            };
+
+            const category = document.getElementById('categorySelect').value;
+            document.getElementById('currentCategory').textContent = categoryMap[category] || category;
+        }
+
+        function updateJokeCount() {
+            document.getElementById('jokesCount').textContent = jokeCount;
+        }
+
+        function showLoading(show) {
+            const loading = document.getElementById('loading');
+            if (show) {
+                loading.classList.add('show');
+            } else {
+                loading.classList.remove('show');
+            }
+        }
+
+        function showError(message) {
+            const errorElement = document.getElementById('errorMessage');
+            errorElement.textContent = '❌ ' + message;
+            errorElement.classList.add('show');
+            setTimeout(() => {
+                errorElement.classList.remove('show');
+            }, 5000);
+        }
+
+        function showSuccess(message) {
+            const successElement = document.getElementById('successMessage');
+            successElement.textContent = '✅ ' + message;
+            successElement.classList.add('show');
+            setTimeout(() => {
+                successElement.classList.remove('show');
+            }, 3000);
+        }
+
+        function clearMessages() {
+            document.getElementById('errorMessage').classList.remove('show');
+            document.getElementById('successMessage').classList.remove('show');
+        }
+
+        function disableButtons(disable) {
+            document.getElementById('getJokeBtn').disabled = disable;
+            document.getElementById('randomBtn').disabled = disable;
+            document.getElementById('copyBtn').disabled = disable || !currentJoke;
+            document.getElementById('shareBtn').disabled = disable || !currentJoke;
+        }
+
+        function copyJoke() {
+            if (!currentJoke) return;
+
+            let jokeText = '';
+            if (currentJoke.type === 'single') {
+                jokeText = currentJoke.joke;
+            } else {
+                jokeText = `${currentJoke.setup}\n\n${currentJoke.delivery}`;
+            }
+
+            navigator.clipboard.writeText(jokeText).then(() => {
+                showSuccess('Joke copied to clipboard!');
+            }).catch(() => {
+                showError('Failed to copy to clipboard');
+            });
+        }
+
+        function shareJoke() {
+            if (!currentJoke) return;
+
+            let jokeText = '';
+            if (currentJoke.type === 'single') {
+                jokeText = currentJoke.joke;
+            } else {
+                jokeText = `${currentJoke.setup}\n\n${currentJoke.delivery}`;
+            }
+
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Check out this joke!',
+                    text: jokeText
+                }).catch(err => console.log('Error sharing:', err));
+            } else {
+                // Fallback: copy to clipboard
+                navigator.clipboard.writeText(jokeText).then(() => {
+                    showSuccess('Joke copied! Share it with someone 😄');
+                });
+            }
+        }
+
+        function getRandomCategory() {
+            const categories = ['any', 'general', 'knock-knock', 'programming', 'dark', 'spooky', 'christmas'];
+            const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+            document.getElementById('categorySelect').value = randomCategory;
+            getJoke();
+        }
+
+        function capitalizeCategory(category) {
+            const capitalizations = {
+                'knock-knock': 'Knock-Knock',
+                'programming': 'Programming',
+                'dark': 'Dark',
+                'spooky': 'Spooky',
+                'christmas': 'Christmas',
+                'general': 'General',
+                'any': 'Any'
+            };
+            return capitalizations[category] || category;
+        }
+
+        // Keyboard shortcut: Press 'J' to get a joke
+        document.addEventListener('keydown', (e) => {
+            if (e.key.toLowerCase() === 'j' && !e.ctrlKey && !e.metaKey) {
+                document.getElementById('getJokeBtn').click();
+            }
+        });
+
+        // Initialize
+        disableButtons(false);
+    </script>
+
+</body>
+</html>
