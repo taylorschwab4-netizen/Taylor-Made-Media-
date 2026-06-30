@@ -291,10 +291,101 @@
             min-width: 30px;
         }
 
+        /* ===== COMMUNITY INITIATIVES SECTION ===== */
+        .community-section {
+            padding: 100px 20px;
+            background-color: var(--off-white);
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .community-card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 12px;
+            border-left: 5px solid var(--emerald);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .community-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+
+        .community-icon {
+            font-size: 2.5rem;
+            color: var(--emerald);
+            margin-bottom: 15px;
+        }
+
+        .community-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            margin-bottom: 12px;
+        }
+
+        .community-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .series-section {
+            background: white;
+            margin-top: 50px;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .series-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--charcoal);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .series-tag {
+            background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-dark) 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .series-tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(46, 125, 50, 0.3);
+        }
+
         /* ===== TESTIMONIALS SECTION ===== */
         .testimonials-section {
             padding: 100px 20px;
-            background-color: var(--off-white);
+            background-color: white;
+            border-top: 1px solid #eaeaea;
         }
 
         .testimonials-grid {
@@ -306,7 +397,7 @@
         }
 
         .testimonial-card {
-            background: white;
+            background: var(--off-white);
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
@@ -339,7 +430,7 @@
         /* ===== PRICING SECTION ===== */
         .pricing-section {
             padding: 100px 20px;
-            background: white;
+            background: var(--off-white);
             border-top: 1px solid #eaeaea;
         }
 
@@ -647,6 +738,7 @@
             }
 
             .services-section,
+            .community-section,
             .features-section,
             .testimonials-section,
             .pricing-section,
@@ -660,6 +752,10 @@
 
             .contact-form {
                 padding: 30px 20px;
+            }
+
+            .series-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -731,6 +827,7 @@
         <nav id="navMenu" aria-label="Main navigation">
             <a href="#about">About</a>
             <a href="#services">Services</a>
+            <a href="#community">Community</a>
             <a href="#testimonials">Testimonials</a>
             <a href="#pricing">Pricing</a>
             <a href="#contact">Contact</a>
@@ -796,6 +893,64 @@
                     <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
                     <h3>Brand Development</h3>
                     <p>Help establish a consistent, professional brand presence. From messaging to visual identity, we ensure you stand out from competitors.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMMUNITY INITIATIVES SECTION -->
+        <section id="community" class="community-section" role="region" aria-label="Community initiatives">
+            <div class="section-title">
+                <h2>Supporting Our Local Community</h2>
+                <p>Beyond content creation, I'm committed to building a thriving local business ecosystem</p>
+            </div>
+            <div class="community-grid">
+                <div class="community-card">
+                    <div class="community-icon"><i class="fas fa-camera"></i></div>
+                    <h3>📸 Business Spotlight Fridays</h3>
+                    <p>Feature one local business each week. Get free exposure and connect with our community audience.</p>
+                </div>
+                <div class="community-card">
+                    <div class="community-icon"><i class="fas fa-gift"></i></div>
+                    <h3>🤝 New Business Welcome Package</h3>
+                    <p>Newly opened businesses get discounted content packages to help you launch strong on social media.</p>
+                </div>
+                <div class="community-card">
+                    <div class="community-icon"><i class="fas fa-video"></i></div>
+                    <h3>🎥 Community Event Coverage</h3>
+                    <p>Capture grand openings, charity events, and local festivals. Share the moments that matter.</p>
+                </div>
+                <div class="community-card">
+                    <div class="community-icon"><i class="fas fa-heart"></i></div>
+                    <h3>💙 Non-Profit Support</h3>
+                    <p>Donate a set number of content projects each year to local charities and community organizations.</p>
+                </div>
+                <div class="community-card">
+                    <div class="community-icon"><i class="fas fa-star"></i></div>
+                    <h3>🌟 Customer Success Stories</h3>
+                    <p>Showcase the people behind local businesses. Celebrate their journeys and inspire the community.</p>
+                </div>
+                <div class="community-card">
+                    <div class="community-icon"><i class="fas fa-chalkboard-user"></i></div>
+                    <h3>🎓 Free Marketing Workshops</h3>
+                    <p>Learn social media best practices. Quarterly workshops to help business owners level up their skills.</p>
+                </div>
+                <div class="community-card">
+                    <div class="community-icon"><i class="fas fa-trophy"></i></div>
+                    <h3>🏆 Local Business of the Month</h3>
+                    <p>Recognize businesses making a positive community impact. Award features and community celebration.</p>
+                </div>
+            </div>
+
+            <!-- Recurring Series -->
+            <div class="series-section">
+                <div class="series-title">🎬 Recurring Content Series</div>
+                <div class="series-grid">
+                    <div class="series-tag">📍 Meet Your Local Business</div>
+                    <div class="series-tag">🎭 Behind the Business</div>
+                    <div class="series-tag">📈 Small Business Success Stories</div>
+                    <div class="series-tag">🌟 Taylor Made Community Spotlight</div>
+                    <div class="series-tag">🛍️ Support Local Saturday</div>
+                    <div class="series-tag">💎 Hidden Gems of the Community</div>
                 </div>
             </div>
         </section>
@@ -982,6 +1137,7 @@
                 <ul>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#community">Community</a></li>
                     <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
